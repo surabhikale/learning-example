@@ -18,19 +18,23 @@ const StringCalculator = () => {
     if (numbers.startsWith("//")) {
       const delimiterEnd = numbers.indexOf("\\n"); 
       const delimiterSection = numbers.substring(2, delimiterEnd);
+      console.log(delimiterSection);
 
       // Handle multiple delimiters like "//[*][%]\n"
       const delimiters = delimiterSection.match(/\[(.*?)\]/g);
       if (delimiters) {
+        console.log(delimiters);
         const escapedDelimiters = delimiters.map((d) =>
           d.slice(1, -1).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
         );
         delimiterRegex = new RegExp(escapedDelimiters.join("|"));
       } else {
         delimiterRegex = new RegExp(delimiterSection.replace(/[.;*+?^${}()|[\]\\]/g, "\\$&"));
+        console.log('33 >>',delimiterRegex);
       }
 
       numbers = numbers.substring(delimiterEnd + 1); 
+      console.log('numbers 37',numbers);
     }
 
    
@@ -48,6 +52,7 @@ const StringCalculator = () => {
 
     // Sum numbers (ignore >1000)
     const sum = numArray.filter((n) => n <= 1000).reduce((acc, num) => acc + num, 0);
+    console.log(sum);
     setResult(sum);
   };
 
