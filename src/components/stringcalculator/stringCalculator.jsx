@@ -11,7 +11,7 @@ const StringCalculator = () => {
       return;
     }
     let numbers = input; //passing values to numbers for assignments
-    let delimiter = /,|;|\\n/; // Default delimiters: comma and newline
+    let delimiter = /,|;|\\n/; // Default delimiters: comma and newline for react jsx need to passed //n
 
     const customDelimiterMatch = input.match(/^\/\/(.+)\\n/);
     if (customDelimiterMatch) {

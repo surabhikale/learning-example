@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import StringCalculator from "./stringCalculator";
 import "@testing-library/jest-dom";
-
+/* try to cover all test cases  */
 describe("StringCalculator Component", () => {
   test("renders input and button", () => {
     render(<StringCalculator />);
@@ -44,6 +44,7 @@ describe("StringCalculator Component", () => {
   });
 
   test("handles multiple custom delimiters", () => {
+    // i could not fix this
     render(<StringCalculator />);
     fireEvent.change(screen.getByPlaceholderText("Enter numbers"), {
       target: { value: "//[*][%]\n1*2%3" },
